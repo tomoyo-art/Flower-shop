@@ -1,0 +1,679 @@
+
+$text_color: #838181;
+$bgc: #F0F7F3;
+$acsess_color: #EAEAEA;
+
+$tab: 1025px; // タブレット
+$sp: 480px;  // スマホ
+
+@mixin tab {
+    @media screen and (max-width: $tab) {
+        @content;
+    }
+}
+@mixin sp {
+  @media screen and (max-width: $sp) {
+    @content;
+  }
+}
+
+
+
+html, body, h1, h2, ul, li, p {
+    padding: 0;
+    margin: 0;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: $text_color;
+    font-family: 'Nanum Gothic', sans-serif;
+    cursor: pointer;
+
+    &:hover {
+        color: #2A2722;
+    }
+}
+
+h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.9rem;
+    padding-bottom: 80px;
+    position: relative;
+    color: $text_color;
+    display: inline-block;
+    text-align: center;
+    @include tab {
+        font-size: 2.5rem;
+    }
+    @include sp {
+        padding-bottom: 40px;
+        font-size: 2rem;
+    }
+}
+
+p {
+    font-family: 'Noto Serif JP', serif;
+    color: $text_color;  
+}
+
+.wrapper {
+    padding: 100px 0;
+    text-align: center;
+    @include tab {
+        padding: 50px 0;
+    }
+}
+
+
+// header始まり
+header {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    background-color: #fff;
+    
+    
+    & .header_wrapper {
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin: 0 140px;
+        @include tab {
+            margin: 0 30px;
+            display: block;
+        }
+       
+        & .header_logo {
+            width: 130px; 
+
+            & img {
+                width: 100%;
+                margin-bottom: 10px;   
+                @include tab {
+                    margin-bottom: 0;
+                }
+                @include sp {
+                    width: 80%;
+                    margin-bottom: 0;
+                }
+            }
+        }
+        
+        & .header_nav {
+            vertical-align: middle;
+            margin-bottom: 20px;
+            @include tab {
+                width: 250px;
+                height: 400px;
+                background-color: #fff;
+                opacity: 0.8;
+                position: absolute;
+                top: 60px;
+                right: -250vw;
+                transition: all 0.6s;
+
+            }
+            & ul {
+                display: flex;
+                @include tab {
+                    display: block;
+                    text-align: center;
+                }
+
+                & .nav_item {
+                    margin-right: 60px;
+                    @include tab {
+                        margin-right: 20px;
+                        margin-bottom: 50px;
+                        
+                    }
+
+                    & a {
+                        font-size: 1.5rem;
+                    }
+
+                    &:nth-child(5) {
+                        margin-right: 0;
+                    }
+                }
+            }
+
+            // レスポンシブクリックで表示
+            &.panelactive {
+                right: 0;
+            }
+        }
+
+
+        & .humburger {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            display: none;
+            @include tab {
+                display: block;
+            }
+
+            &  span {
+                width: 30px;
+                height: 2px;
+                border-radius: 3px;
+                margin-bottom: 8px;
+                display: block;
+                background-color: $text_color;
+                transition: all 0.5s;
+
+            }
+            &.active span:nth-of-type(1) {
+                transform: translateY(10px)rotate(-45deg);
+            }
+            &.active span:nth-of-type(2) {
+                opacity: 0;
+            }
+            &.active span:nth-of-type(3) {
+                transform: translateY(-10px)rotate(45deg);
+            }
+        }       
+    }    
+}
+
+// Fv始まり
+.fv {
+    & .fv_inner {
+        position: relative;
+        height: 700px;
+        background-image: url(/img/fv.jpg);
+        background-size: cover;
+        background-position: center center;
+        margin-top: 60px;
+        @include sp {
+            height: 500px;
+        }
+
+         & .fv_text {
+             width: 894px;
+             height: 182px;
+             position: absolute;
+             top: 50%;
+             bottom: 50%;
+             left: 50%;
+             right: 50%;
+             transform: translate(-50%, -50%);
+             animation-name: fade;
+             animation-duration: 5s;
+             animation-iteration-count: 1;
+             @include tab {
+                width: 500px;
+                height: 90px;
+             }
+             @include sp {
+                width: 196px;
+                 height: 40px;
+             }
+            
+             & img {
+                 width: 100%;
+                 height: 100%;
+             }
+         }
+         @keyframes fade{
+            0%{
+              opacity: 0;
+            }
+            100%{
+              opacity: 1;
+            }
+          }
+    }
+}
+
+// consept始まり
+#consept {
+    & .consept_wrapper {
+
+        & .consept_inner {
+            width: 70%;
+            height: 550px;
+            background-color: $bgc;
+            box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.5);
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            @include tab {
+                height: 400px;
+            }
+            @include sp {
+                width: 80%;
+                height: 300px;
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                width: 300px;
+                height: 525px;
+                background-image: url(/img/Flowers_illust-2.png);
+                background-size: cover;
+                position: absolute;
+                right: -100px;
+                bottom: -80px;
+                @include tab {
+                    width: 150px;
+                    height: 262px;
+                    right: -30;
+                    bottom: 0;
+                }
+                @include sp {
+                    width: 80px;
+                    height: 136px;
+                    right: -35px;
+                    bottom: -35px
+                }
+            }
+            
+            & .consept_text {      
+                P {
+                    font-size: 1.8rem;
+                    letter-spacing: 1px;    
+                    @include tab {
+                        font-size: 1.2rem;
+                    } 
+                    @include sp {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        } 
+     } 
+     
+     & .consept_container {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin-top: 100px;
+         @include tab {
+             display: block;  
+         }
+    
+
+         & .consept_img {
+             width: 60%;
+             height: 600px;
+             background-image: url(/img/consept_photo.jpg);
+             background-size: cover;
+             background-position: center center;
+             @include tab {
+                 width: 70%;
+                 height: 350px;
+                 margin: 0 auto 50px;
+             }
+             @include sp {
+                 height: 200px;
+             }
+            }
+
+         & .consept_poem {
+             width: 40%;
+             @include tab {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+             }
+             @include sp {
+                 display: block;
+             }
+
+             & hr {
+                 width: 80%;
+                 margin: 60px auto;
+                 @include tab {
+                     display: none;
+                 }
+                 @include sp {
+                     display: block;
+                     margin: 20px auto;
+                 }
+             }
+
+            & .consept_poem_box {
+                @include tab {
+                    padding: 10px;
+                    width: 40%;
+                }
+                @include sp {
+                    width: 80%;
+                    margin: 0 auto;
+
+                }
+                
+
+                & p {
+                    text-align: center;
+                    line-height: 3rem;
+                    font-size: 1.2rem;
+                    @include tab {
+                        font-size: 1rem;
+                        line-height: 1.5rem;
+                        text-align: left;
+                    }
+                    @include sp {
+                        font-size: 0.8rem;
+                    }
+                    
+                }
+            }
+         }
+     }
+}
+
+// gallery始まり
+.gallery_wrapper {
+    background-color: $bgc;
+    
+        .gallery_inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            box-sizing: border-box;
+                    
+            & .gallery_img {
+                width: 30%;
+                height: 300px;
+                margin: 15px;
+                position: relative;
+                box-shadow: 10px 10px 10px -5px rgba(0, 0, 0, 0.5);
+                @include tab {
+                    width: 45%;
+                }
+                @include sp {
+                    width: 80%;
+                    height: 200px;
+                }
+
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    background-color: rgba(0, 0, 0, 0.3);
+                    z-index: 10;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                }
+                
+                & :hover {
+                    display: none;
+                }       
+                
+                & img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }      
+        }
+
+        & .gallery_text {
+            margin: 50px 100px;
+            display: flex;
+            justify-content: center;
+            @include sp {
+                display: block;
+                margin: 30px 30px 0 30px;
+            }
+
+            &  .gallery_text_inner {
+                          
+                & p {
+                    font-size: 1.2rem;
+                    text-align: left;
+                    line-height: 3rem;
+                    @include tab {
+                        font-size: 0.9rem;
+                        line-height: 1.5rem;
+                    }          
+                }
+            }
+
+            & .insta_logo {
+                width: 100px;
+                height: 100px;
+                @include tab {
+                    width: 60px;
+                    height: 60px;
+                }
+                @include sp {
+                    margin: 0 auto;
+                    width: 40px;                
+                }
+                
+                &  img {
+                    width: 90%;  
+                    padding: 10px;
+                    transition: all .3s ease-in-out;
+
+                    &:hover {
+                        background-color: #fff;
+                        border-radius: 20px;
+                        width: 100%;
+                    }
+                }             
+            }
+        }
+}
+// gallery終わり
+
+// menuはじまり
+.menu_wrapper {
+  
+    & p {
+        margin-bottom: 50px;
+        font-size: 1.2rem;
+        @include sp {
+            font-size: 1rem;
+        }
+    }
+    & .menu_inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include sp {
+            display: block;
+        }
+            
+        & .menu_inner_item {
+            width: 40%;
+            height: 650px;
+            background-color: $bgc;
+            margin: 0 50px 50px 0;
+            @include tab {
+                margin: 20px;
+                width: 45%;
+                height: 450px;
+            }
+            @include sp {
+                width: 80%;
+                margin: 0 auto 50px;
+                padding-top: 20px;
+            }
+
+            & .menu_inner_item_img {
+                display: block;
+                width: 80%;
+                height: 250px;
+                margin: 50px auto;
+                object-fit: cover;
+                @include tab {
+                    height: 180px;                    
+                    margin: 20px auto;
+                }
+            }
+            & h3 {
+               font-size: 1.5rem; 
+               font-family: 'Noto Serif JP', serif;   
+               color: $text_color;    
+               @include tab {
+                   font-size: 1.2rem;
+               }      
+             }
+             & p {
+                 font-size: 1.2rem;
+                 line-height: 3rem;
+                 @include tab {
+                     font-size: 1rem;
+                     line-height: 1.5rem;
+                     text-align: left;
+                     padding: 0 25px;
+                 }
+             }
+         }   
+    }
+}
+
+// acsess始まり
+.acsess_wrapper {
+    background-color: $acsess_color;
+
+    .acsess_inner {
+        display: flex;
+        justify-content: center;
+        @include tab {
+            justify-content: space-between;
+        }
+        @include sp {
+            display: block;
+        }
+        
+        
+        & .acsess_info {
+            width: 35%;
+            text-align: left;
+            margin-right: 30px;
+            @include tab {
+                margin-left: 50px;
+            }
+            @include sp {
+                width: 80%;
+            }
+            
+            & .logo {
+                width: 200px;
+                margin-bottom: 20px;
+                @include tab {
+                    width: 150px;
+                }
+                & img {
+                    width: 100%;
+                }
+            }
+            
+            & p {
+                font-size: 1.5rem;
+                line-height: 3rem;
+                @include tab {
+                    font-size: 1.2rem;
+                    line-height: 1.7rem;
+                }
+            }
+            & p:nth-child(5) {
+                font-size: 1.2rem;
+                margin-top: 40px;
+                line-height: 1.5rem;
+                @include tab {
+                    font-size: 1rem;
+                    margin-top: 20px;
+                }
+            }
+            
+            & .sns {
+                display: flex;
+                margin-top: 20px;
+                
+                & .sns_inner {
+                    display: flex;
+                    align-items: flex-end;
+                    margin-right: 35px;
+                    height: 60px;
+
+                    & p {
+                        font-size: 1.1rem;
+                    }
+                    
+                    & .sns_logo {
+                        width: 50px;
+                        margin-left: 10px;
+
+                        
+                        & img {
+                            width: 80%;
+                            transition: all .2s ease-in;
+
+                            &:hover {
+                                width: 100%;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+        & .acsess_map {
+            @include tab {
+                width: 40%;
+                height: 400px;
+                margin-right: 50px;
+            }
+            @include sp {
+                width: 80%;
+                height: 300px;
+                margin: 20px auto;
+            }
+            & iframe {
+                @include tab {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+// footer始まり　
+footer {
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    & p {
+        font-size: 12px;
+    }
+}
+// footer終わり
+
+
+
+
+
+
+
+
+
+
+
+
