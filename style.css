@@ -196,9 +196,6 @@ header .header_wrapper .humburger.active span:nth-of-type(3) {
 .fv .fv_inner {
   position: relative;
   height: 700px;
-  background-image: url(/img/fv.jpg);
-  background-size: cover;
-  background-position: center center;
   margin-top: 60px;
 }
 
@@ -206,6 +203,12 @@ header .header_wrapper .humburger.active span:nth-of-type(3) {
   .fv .fv_inner {
     height: 500px;
   }
+}
+
+.fv .fv_inner img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
 }
 
 .fv .fv_inner .fv_text {
@@ -275,20 +278,16 @@ header .header_wrapper .humburger.active span:nth-of-type(3) {
   }
 }
 
-#consept .consept_wrapper .consept_inner::after {
-  content: "";
-  display: block;
+#consept .consept_wrapper .consept_inner .flower_illust {
   width: 300px;
   height: 525px;
-  background-image: url(/img/Flowers_illust-2.png);
-  background-size: cover;
   position: absolute;
   right: -100px;
   bottom: -80px;
 }
 
 @media screen and (max-width: 1025px) {
-  #consept .consept_wrapper .consept_inner::after {
+  #consept .consept_wrapper .consept_inner .flower_illust {
     width: 150px;
     height: 262px;
     right: -30;
@@ -297,12 +296,17 @@ header .header_wrapper .humburger.active span:nth-of-type(3) {
 }
 
 @media screen and (max-width: 480px) {
-  #consept .consept_wrapper .consept_inner::after {
+  #consept .consept_wrapper .consept_inner .flower_illust {
     width: 80px;
     height: 136px;
     right: -35px;
     bottom: -35px;
   }
+}
+
+#consept .consept_wrapper .consept_inner .flower_illust img {
+  width: 100%;
+  height: 100%;
 }
 
 #consept .consept_wrapper .consept_inner .consept_text P {
@@ -338,9 +342,6 @@ header .header_wrapper .humburger.active span:nth-of-type(3) {
 #consept .consept_container .consept_img {
   width: 60%;
   height: 600px;
-  background-image: url(/img/consept_photo.jpg);
-  background-size: cover;
-  background-position: center center;
 }
 
 @media screen and (max-width: 1025px) {
@@ -355,6 +356,12 @@ header .header_wrapper .humburger.active span:nth-of-type(3) {
   #consept .consept_container .consept_img {
     height: 200px;
   }
+}
+
+#consept .consept_container .consept_img img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
 }
 
 #consept .consept_container .consept_poem {
@@ -458,24 +465,6 @@ header .header_wrapper .humburger.active span:nth-of-type(3) {
     width: 80%;
     height: 200px;
   }
-}
-
-.gallery_wrapper .gallery_inner .gallery_img::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  display: block;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 10;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-
-.gallery_wrapper .gallery_inner .gallery_img :hover {
-  display: none;
 }
 
 .gallery_wrapper .gallery_inner .gallery_img img {
